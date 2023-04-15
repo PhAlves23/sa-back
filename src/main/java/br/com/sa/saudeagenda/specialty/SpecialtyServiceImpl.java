@@ -41,4 +41,10 @@ public class SpecialtyServiceImpl implements SpecialtyService {
                 .orElseThrow(() -> new DatabaseException("Entity not found!"));
         return new SpecialtyDTO(specialtyModel);
     }
+
+    @Override
+    public void delete(Long idSpecialty) {
+        log.info("[1] - Delete specialty in the database by id. idSpecialty: {}", idSpecialty);
+        repository.deleteById(idSpecialty);
+    }
 }

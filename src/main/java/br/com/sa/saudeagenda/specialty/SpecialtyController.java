@@ -31,4 +31,10 @@ public class SpecialtyController {
         return ResponseEntity.status(201).body(specialtyDTO);
     }
 
+    @DeleteMapping("{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id){
+        service.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+
 }

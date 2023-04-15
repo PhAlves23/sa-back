@@ -34,4 +34,13 @@ public interface SpecialtyService {
      * @return {@link SpecialtyDTO}
      */
     SpecialtyDTO findById(Long idSpecialty);
+
+    /**
+     * <h2>
+     * Method responsible for deleting  <b><i>specialties</i></b>.
+     * </h2>
+     *
+     * @param idSpecialty
+     */
+    void delete(Long idSpecialty);
 }
