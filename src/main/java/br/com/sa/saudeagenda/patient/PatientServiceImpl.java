@@ -16,6 +16,15 @@ public class PatientServiceImpl implements PatientService{
     private PatientRepository repository;
 
     @Override
+    public PatientDTO create(PatientDTO dto) {
+        log.info("[1] - Mapping patient.");
+        var patientModel = new PatientModel(dto);
+        log.info("[2] - Saving patient in the database.");
+        repository.save(patientModel);
+        return new PatientDTO(patientModel);
+    }
+
+    @Override
     @Transactional(readOnly = true)
 
     public List<PatientDTO> findAll(){

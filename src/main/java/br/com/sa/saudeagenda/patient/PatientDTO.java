@@ -2,7 +2,7 @@ package br.com.sa.saudeagenda.patient;
 
 import lombok.*;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Data
 @Builder
@@ -14,11 +14,12 @@ public class PatientDTO {
     private Long id;
     private String name;
     private String email;
-    private LocalDateTime birthDate;
+    private LocalDate birthDate;
     private String cpf;
     private String telephone;
 
     public PatientDTO(PatientModel p) {
+        this.id = p.getId();
         this.name = p.getName();
         this.email = p.getEmail();
         this.birthDate = p.getBirthDate();

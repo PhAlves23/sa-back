@@ -5,7 +5,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Entity(name = "Patient")
 @Table(name = "TB_PATIENT")
@@ -26,7 +26,7 @@ public class PatientModel {
     private String email;
 
     @NotNull
-    private LocalDateTime birthDate;
+    private LocalDate birthDate;
 
     @NotNull
     private String cpf;
@@ -34,4 +34,11 @@ public class PatientModel {
     @NotNull
     private String telephone;
 
+    public PatientModel(PatientDTO dto) {
+        this.name = dto.getName();
+        this.email = dto.getEmail();
+        this.birthDate = dto.getBirthDate();
+        this.cpf = dto.getCpf();
+        this.telephone = dto.getTelephone();
+    }
 }
