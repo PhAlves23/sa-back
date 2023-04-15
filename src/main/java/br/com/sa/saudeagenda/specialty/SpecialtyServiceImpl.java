@@ -1,5 +1,6 @@
 package br.com.sa.saudeagenda.specialty;
 
+import br.com.sa.saudeagenda.exception.DatabaseException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,6 +36,9 @@ public class SpecialtyServiceImpl implements SpecialtyService {
     @Transactional
     @Override
     public SpecialtyDTO findById(Long idSpecialty) {
-        return null;
+        log.info("[1] - Search specialty in the database. idSpecialty: {}", idSpecialty);
+        SpecialtyModel specialtyModel = repository.findById(idSpecialty)
+                .orElseThrow(() -> new DatabaseException("Entity not found!"));
+        return new SpecialtyDTO(specialtyModel);
     }
 }

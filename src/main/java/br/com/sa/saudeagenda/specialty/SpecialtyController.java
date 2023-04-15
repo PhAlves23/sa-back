@@ -19,6 +19,12 @@ public class SpecialtyController {
         return ResponseEntity.ok(list);
     }
 
+    @GetMapping("{id}")
+    public ResponseEntity<SpecialtyDTO> findById(@PathVariable Long id){
+        SpecialtyDTO specialtyDTO = service.findById(id);
+        return ResponseEntity.ok(specialtyDTO);
+    }
+
     @PostMapping
     public ResponseEntity<SpecialtyDTO> create(@RequestBody SpecialtyDTO dto){
         SpecialtyDTO specialtyDTO = service.create(dto);
