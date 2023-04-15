@@ -1,6 +1,7 @@
 package br.com.sa.saudeagenda.patient;
 
 
+import br.com.sa.saudeagenda.exception.DatabaseException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,21 +16,43 @@ public class PatientServiceImpl implements PatientService{
     @Autowired
     private PatientRepository repository;
 
+    @Transactional
     @Override
-    public PatientDTO create(PatientDTO dto) {
+    public PatientDTO create(PatientDTO patientDTO) {
         log.info("[1] - Mapping patient.");
-        var patientModel = new PatientModel(dto);
+        var patientModel = new PatientModel(patientDTO);
         log.info("[2] - Saving patient in the database.");
         repository.save(patientModel);
         return new PatientDTO(patientModel);
     }
 
-    @Override
     @Transactional(readOnly = true)
-
+    @Override
     public List<PatientDTO> findAll(){
         log.info("[1] - Search all patients in the database.");
         List<PatientModel> list = repository.findAll();
         return list.stream().map(p -> new PatientDTO(p)).toList();
+    }
+
+    @Transactional(readOnly = true)
+    @Override
+    public PatientDTO findById(Long idPatient) {
+        log.info("[1] - Search patient in the database. idPatient: {}", idPatient);
+        PatientModel patientModel = repository.findById(idPatient).orElseThrow(() -> new DatabaseException("Entity not found!"));
+        return new PatientDTO(patientModel);
+    }
+
+    @Transactional
+    @Override
+    public PatientDTO update(Long idPatient, PatientDTO patientDTO) {
+        log.info("[1] - Search patient in the database. idPatient: {}", idPatient);
+//        var patientReference = repository.getReferenceById(idPatient);
+        var patientReference = repository.findById(idPatient)
+                .orElseThrow(() -> new DatabaseException("Entity not found!"));
+        log.info("[2] - Mapping for patientModel.");
+        var patientModel = new PatientModel(patientReference);
+        log.info("[3]. Saving new patient in the database. patientModel: {}", patientModel.toString());
+        repository.save(patientModel);
+        return new PatientDTO(patientModel);
     }
 }

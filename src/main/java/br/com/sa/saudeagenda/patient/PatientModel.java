@@ -41,4 +41,12 @@ public class PatientModel {
         this.cpf = dto.getCpf();
         this.telephone = dto.getTelephone();
     }
+
+    public PatientModel(PatientModel p) {
+        this.name = p.getName();
+        this.email = p.getEmail();
+        this.birthDate = p.getBirthDate();
+        this.cpf = p.getCpf();
+        this.telephone = p.getTelephone();
+    }
 }

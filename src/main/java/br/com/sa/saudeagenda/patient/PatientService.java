@@ -10,18 +10,40 @@ public interface PatientService {
     /**
      * <h2>Method responsible for saving a new <b><i>Category</i></b>.</h2>
      *
-     * @param PatientDTO the category dto
+     * @param patientDTO the category dto
      * @return {@link PatientDTO}
      */
-    public PatientDTO create(PatientDTO dto);
+    PatientDTO create(PatientDTO patientDTO);
 
 
     /**
      * <h2>
-     * Method responsible for retrieving all <b><i>categories</i></b>.
+     * Method responsible for retrieving all <b><i>patients</i></b>.
      * </h2>
      *
      * @return {@link PatientDTO}
      */
-    List<PatientDTO> findAll();
+     List<PatientDTO> findAll();
+
+    /**
+     * <h2>
+     * Method responsible for retrieving patient by <b><i>idPatient</i></b>.
+     * </h2>
+     *
+     * @param idPatient the id category.
+     * @return {@link PatientDTO}
+     */
+    PatientDTO findById(Long idPatient);
+
+
+    /**
+     * <h2>
+     * Method responsible for updateting  <b><i>Patient</i></b>.
+     * </h2>
+     *
+     * @param idPatient
+     * @param patientDTO
+     * @return {@link PatientDTO}
+     */
+    PatientDTO update(Long idPatient, PatientDTO patientDTO);
 }
