@@ -1,5 +1,6 @@
 package br.com.sa.saudeagenda.doctor;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -32,7 +33,7 @@ public class DoctorController {
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<DoctorDTO> update(@PathVariable Long id, @RequestBody DoctorDTO dto){
+    public ResponseEntity<DoctorDTO> update(@PathVariable Long id, @RequestBody @Valid DoctorDTO dto){
         DoctorDTO doctorDTO = service.update(id, dto);
         return ResponseEntity.ok(doctorDTO);
     }

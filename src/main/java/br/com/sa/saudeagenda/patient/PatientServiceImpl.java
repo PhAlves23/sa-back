@@ -46,7 +46,6 @@ public class PatientServiceImpl implements PatientService{
     @Override
     public PatientDTO update(Long idPatient, PatientDTO patientDTO) {
         log.info("[1] - Search patient in the database. idPatient: {}", idPatient);
-//        var patientReference = repository.getReferenceById(idPatient);
         var patientReference = repository.findById(idPatient)
                 .orElseThrow(() -> new DatabaseException("Entity not found!"));
         log.info("[2] - Mapping for patientModel.");

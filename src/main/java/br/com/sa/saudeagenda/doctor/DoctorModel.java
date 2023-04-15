@@ -30,13 +30,6 @@ public class DoctorModel {
     @NotNull
     private String crm;
 
-    public DoctorModel(DoctorDTO doctorDTO) {
-        this.name = doctorDTO.getName();
-        this.email = doctorDTO.getEmail();
-        this.telephone = doctorDTO.getTelephone();
-        this.crm = doctorDTO.getCrm();
-    }
-
     //N X M
     //    private String specialty;
 
@@ -45,5 +38,12 @@ public class DoctorModel {
 
     //    @ManyToOne(fetch = FetchType.LAZY)
     //    private Convenio convenio;
+
+    public DoctorModel(DoctorDTO doctorDTO) {
+        this.name = doctorDTO.getName();
+        this.email = doctorDTO.getEmail();
+        this.telephone = doctorDTO.getTelephone();
+        this.crm = doctorDTO.getCrm();
+    }
 
 }
