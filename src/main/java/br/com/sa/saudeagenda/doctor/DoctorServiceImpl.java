@@ -1,8 +1,6 @@
 package br.com.sa.saudeagenda.doctor;
 
 import br.com.sa.saudeagenda.exception.DatabaseException;
-import br.com.sa.saudeagenda.patient.PatientDTO;
-import br.com.sa.saudeagenda.patient.PatientModel;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +14,16 @@ public class DoctorServiceImpl implements DoctorService {
 
     @Autowired
     private DoctorRepository repository;
+
+    @Transactional
+    @Override
+    public DoctorDTO create(DoctorDTO doctorDTO) {
+        log.info("[1] - Mapping doctor.");
+        DoctorModel doctorModel = new DoctorModel(doctorDTO);
+        log.info("[2] - Saving doctor in the database.");
+        repository.save(doctorModel);
+        return new DoctorDTO(doctorModel);
+    }
 
     @Transactional(readOnly = true)
     @Override

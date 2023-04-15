@@ -2,10 +2,7 @@ package br.com.sa.saudeagenda.doctor;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -15,6 +12,12 @@ public class DoctorController {
 
     @Autowired
     private DoctorServiceImpl service;
+
+    @PostMapping
+    public ResponseEntity<DoctorDTO> create(@RequestBody DoctorDTO dto){
+        DoctorDTO doctorDTO = service.create(dto);
+        return ResponseEntity.status(201).body(doctorDTO);
+    }
 
     @GetMapping
     public ResponseEntity<List<DoctorDTO>> findAll() {

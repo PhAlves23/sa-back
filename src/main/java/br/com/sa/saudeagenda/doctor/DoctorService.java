@@ -9,6 +9,16 @@ import java.util.List;
 @Component
 public interface DoctorService {
 
+
+    /**
+     * <h2>Method responsible for saving a new <b><i>Doctor</i></b>.</h2>
+     *
+     * @param doctorDTO the doctor dto
+     * @return {@link DoctorDTO}
+     */
+    DoctorDTO create(DoctorDTO doctorDTO);
+
+
     /**
      * <h2>
      * Method responsible for retrieving all <b><i>doctors</i></b>.

@@ -8,9 +8,9 @@ import java.util.List;
 public interface PatientService {
 
     /**
-     * <h2>Method responsible for saving a new <b><i>Category</i></b>.</h2>
+     * <h2>Method responsible for saving a new <b><i>Patient</i></b>.</h2>
      *
-     * @param patientDTO the category dto
+     * @param patientDTO the patient dto
      * @return {@link PatientDTO}
      */
     PatientDTO create(PatientDTO patientDTO);
