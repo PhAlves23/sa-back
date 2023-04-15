@@ -50,15 +50,18 @@ public class PatientServiceImpl implements PatientService{
         var patientReference = repository.findById(idPatient)
                 .orElseThrow(() -> new DatabaseException("Entity not found!"));
         log.info("[2] - Mapping for patientModel.");
-        var patientModel = new PatientModel(patientReference);
-        log.info("[3]. Saving new patient in the database. patientModel: {}", patientModel.toString());
-        repository.save(patientModel);
-        return new PatientDTO(patientModel);
+        patientReference.setName(patientDTO.getName());
+        patientReference.setCpf(patientDTO.getCpf());
+        patientReference.setBirthDate(patientDTO.getBirthDate());
+        patientReference.setTelephone(patientDTO.getTelephone());
+        log.info("[3]. Saving new patient in the database. patientModel: {}", patientReference.toString());
+        repository.save(patientReference);
+        return new PatientDTO(patientReference);
     }
 
     @Override
     public void delete(Long idPatient) {
-        log.info("[1] - Delete patient in the database by id. idDebt: {}", idPatient);
+        log.info("[1] - Delete patient in the database by id. idPatient: {}", idPatient);
         repository.deleteById(idPatient);
     }
 }
