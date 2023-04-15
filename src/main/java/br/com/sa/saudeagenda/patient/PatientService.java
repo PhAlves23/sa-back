@@ -23,7 +23,7 @@ public interface PatientService {
      *
      * @return {@link PatientDTO}
      */
-     List<PatientDTO> findAll();
+    List<PatientDTO> findAll();
 
     /**
      * <h2>

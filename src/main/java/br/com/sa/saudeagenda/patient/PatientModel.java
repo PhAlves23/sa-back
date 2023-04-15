@@ -16,7 +16,8 @@ import java.time.LocalDate;
 @EqualsAndHashCode
 public class PatientModel {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull
