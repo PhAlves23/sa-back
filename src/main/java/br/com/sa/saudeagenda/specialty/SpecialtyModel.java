@@ -22,4 +22,9 @@ public class SpecialtyModel {
 
     @NotNull
     private String description;
+
+    public SpecialtyModel(SpecialtyDTO dto) {
+        this.name = dto.getName();
+        this.description = dto.getDescription();
+    }
 }

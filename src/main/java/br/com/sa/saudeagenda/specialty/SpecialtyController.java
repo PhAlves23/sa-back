@@ -1,14 +1,8 @@
 package br.com.sa.saudeagenda.specialty;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,6 +17,12 @@ public class SpecialtyController {
     public ResponseEntity<List<SpecialtyDTO>> findAll(){
         List<SpecialtyDTO> list = service.findAll();
         return ResponseEntity.ok(list);
+    }
+
+    @PostMapping
+    public ResponseEntity<SpecialtyDTO> create(@RequestBody SpecialtyDTO dto){
+        SpecialtyDTO specialtyDTO = service.create(dto);
+        return ResponseEntity.status(201).body(specialtyDTO);
     }
 
 }
