@@ -55,4 +55,10 @@ public class PatientServiceImpl implements PatientService{
         repository.save(patientModel);
         return new PatientDTO(patientModel);
     }
+
+    @Override
+    public void delete(Long idPatient) {
+        log.info("[1] - Delete patient in the database by id. idDebt: {}", idPatient);
+        repository.deleteById(idPatient);
+    }
 }

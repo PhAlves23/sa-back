@@ -46,4 +46,14 @@ public interface PatientService {
      * @return {@link PatientDTO}
      */
     PatientDTO update(Long idPatient, PatientDTO patientDTO);
+
+    /**
+     * <h2>
+     * Method responsible for deleting  <b><i>patients</i></b>.
+     * </h2>
+     *
+     * @param idPatient
+     */
+    void delete(Long idPatient);
+
 }
