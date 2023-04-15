@@ -17,4 +17,15 @@ public interface DoctorService {
      * @return {@link DoctorDTO}
      */
     List<DoctorDTO> findAll();
+
+
+    /**
+     * <h2>
+     * Method responsible for retrieving doctor by <b><i>idDoctor</i></b>.
+     * </h2>
+     *
+     * @param idDoctor the id category.
+     * @return {@link DoctorDTO}
+     */
+    DoctorDTO findById(Long idDoctor);
 }
