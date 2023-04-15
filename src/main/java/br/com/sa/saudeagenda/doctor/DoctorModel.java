@@ -31,7 +31,6 @@ public class DoctorModel {
     private String crm;
 
     public DoctorModel(DoctorDTO doctorDTO) {
-        this.id = doctorDTO.getId();
         this.name = doctorDTO.getName();
         this.email = doctorDTO.getEmail();
         this.telephone = doctorDTO.getTelephone();

@@ -1,6 +1,7 @@
 package br.com.sa.saudeagenda.doctor;
 
 import br.com.sa.saudeagenda.exception.DatabaseException;
+import br.com.sa.saudeagenda.patient.PatientDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,6 +43,23 @@ public class DoctorServiceImpl implements DoctorService {
         return new DoctorDTO(doctorModel);
     }
 
+    @Transactional
+    @Override
+    public DoctorDTO update(Long idDoctor, DoctorDTO doctorDTO) {
+        log.info("[1] - Search doctor in the database. idDoctor: {}", idDoctor);
+        DoctorModel doctorModel = repository.findById(idDoctor)
+                .orElseThrow(() -> new DatabaseException("Entity not found!"));
+        log.info("[2] - Mapping for doctorModel.");
+        doctorModel.setName(doctorDTO.getName());
+        doctorModel.setEmail(doctorModel.getEmail());
+        doctorModel.setTelephone(doctorModel.getTelephone());
+        doctorModel.setCrm(doctorModel.getCrm());
+        log.info("[3]. Saving new doctor in the database. doctorModel: {}", doctorModel.toString());
+        repository.save(doctorModel);
+        return new DoctorDTO(doctorModel);
+    }
+
+    @Transactional
     @Override
     public void delete(Long idDoctor) {
         log.info("[1] - Delete doctor in the database by id. idDoctor: {}", idDoctor);

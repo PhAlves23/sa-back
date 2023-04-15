@@ -39,6 +39,18 @@ public interface DoctorService {
      */
     DoctorDTO findById(Long idDoctor);
 
+
+    /**
+     * <h2>
+     * Method responsible for updateting  <b><i>Doctor</i></b>.
+     * </h2>
+     *
+     * @param idDoctor
+     * @param doctorDTO
+     * @return {@link DoctorDTO}
+     */
+    DoctorDTO update(Long idDoctor, DoctorDTO doctorDTO);
+
     /**
      * <h2>
      * Method responsible for deleting  <b><i>doctors</i></b>.

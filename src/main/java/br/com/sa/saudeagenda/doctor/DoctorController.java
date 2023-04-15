@@ -31,6 +31,12 @@ public class DoctorController {
         return ResponseEntity.ok(doctorDTO);
     }
 
+    @PutMapping("{id}")
+    public ResponseEntity<DoctorDTO> update(@PathVariable Long id, @RequestBody DoctorDTO dto){
+        DoctorDTO doctorDTO = service.update(id, dto);
+        return ResponseEntity.ok(doctorDTO);
+    }
+
     @DeleteMapping("{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id){
         service.delete(id);
