@@ -42,4 +42,10 @@ public class DoctorServiceImpl implements DoctorService {
         return new DoctorDTO(doctorModel);
     }
 
+    @Override
+    public void delete(Long idDoctor) {
+        log.info("[1] - Delete doctor in the database by id. idDoctor: {}", idDoctor);
+        repository.deleteById(idDoctor);
+    }
+
 }

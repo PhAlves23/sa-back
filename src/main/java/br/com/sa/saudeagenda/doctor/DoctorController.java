@@ -30,4 +30,10 @@ public class DoctorController {
         DoctorDTO doctorDTO = service.findById(id);
         return ResponseEntity.ok(doctorDTO);
     }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id){
+        service.delete(id);
+        return ResponseEntity.noContent().build();
+    }
 }

@@ -38,4 +38,13 @@ public interface DoctorService {
      * @return {@link DoctorDTO}
      */
     DoctorDTO findById(Long idDoctor);
+
+    /**
+     * <h2>
+     * Method responsible for deleting  <b><i>doctors</i></b>.
+     * </h2>
+     *
+     * @param idDoctor
+     */
+    void delete(Long idDoctor);
 }
