@@ -25,4 +25,10 @@ public class AppointmentController {
         return ResponseEntity.ok(appointmentDTO);
     }
 
+    @GetMapping("{id}")
+    public ResponseEntity<AppointmentDTO> findById(@PathVariable Long id){
+        AppointmentDTO appointmentDTO = service.findById(id);
+        return ResponseEntity.ok(appointmentDTO);
+    }
+
 }

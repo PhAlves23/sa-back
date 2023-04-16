@@ -25,15 +25,15 @@ public interface AppointmentService {
      */
     List<AppointmentDTO> findAll();
 
-//    /**
-//     * <h2>
-//     * Method responsible for retrieving appointment by <b><i>idAppointment</i></b>.
-//     * </h2>
-//     *
-//     * @param idAppointment the id category.
-//     * @return {@link AppointmentDTO}
-//     */
-//    AppointmentDTO findById(Long idAppointment);
+    /**
+     * <h2>
+     * Method responsible for retrieving appointment by <b><i>idAppointment</i></b>.
+     * </h2>
+     *
+     * @param idAppointment the id category.
+     * @return {@link AppointmentDTO}
+     */
+    AppointmentDTO findById(Long idAppointment);
 
 
 //    /**
