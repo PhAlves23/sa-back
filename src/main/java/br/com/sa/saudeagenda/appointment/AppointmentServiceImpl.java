@@ -8,10 +8,19 @@ import java.util.List;
 
 @Service
 @Slf4j
-public class AppointmentServiceImpl implements AppointmentService{
+public class AppointmentServiceImpl implements AppointmentService {
 
     @Autowired
     private AppointmentRepository repository;
+
+    @Override
+    public AppointmentDTO create(AppointmentDTO appointmentDTO) {
+        log.info("[1] - Mapping appointment.");
+        AppointmentModel appointmentModel = new AppointmentModel(appointmentDTO);
+        log.info("[2] - Saving appointment in the database.");
+        repository.save(appointmentModel);
+        return new AppointmentDTO(appointmentModel);
+    }
 
     @Override
     public List<AppointmentDTO> findAll() {

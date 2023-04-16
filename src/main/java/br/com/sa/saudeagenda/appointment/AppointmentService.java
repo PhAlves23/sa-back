@@ -7,13 +7,13 @@ import java.util.List;
 @Component
 public interface AppointmentService {
 
-//    /**
-//     * <h2>Method responsible for saving a new <b><i>Appointment</i></b>.</h2>
-//     *
-//     * @param appointmentDTO the patient dto
-//     * @return {@link AppointmentDTO}
-//     */
-//    AppointmentDTO create(AppointmentDTO appointmentDTO);
+    /**
+     * <h2>Method responsible for saving a new <b><i>Appointment</i></b>.</h2>
+     *
+     * @param appointmentDTO the patient dto
+     * @return {@link AppointmentDTO}
+     */
+    AppointmentDTO create(AppointmentDTO appointmentDTO);
 
 
     /**

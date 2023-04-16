@@ -25,4 +25,8 @@ public class AppointmentModel {
     @NotNull
     private LocalDateTime appointmentTime;
 
+    public AppointmentModel(AppointmentDTO a) {
+        this.date = a.getDate();
+        this.appointmentTime = a.getAppointmentTime();
+    }
 }
