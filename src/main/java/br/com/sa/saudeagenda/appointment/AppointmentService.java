@@ -36,16 +36,16 @@ public interface AppointmentService {
     AppointmentDTO findById(Long idAppointment);
 
 
-//    /**
-//     * <h2>
-//     * Method responsible for updateting  <b><i>Appointment</i></b>.
-//     * </h2>
-//     *
-//     * @param idAppointment
-//     * @param appointmentDTO
-//     * @return {@link AppointmentDTO}
-//     */
-//    AppointmentDTO update(Long idAppointment, AppointmentDTO appointmentDTO);
+    /**
+     * <h2>
+     * Method responsible for updateting  <b><i>Appointment</i></b>.
+     * </h2>
+     *
+     * @param idAppointment
+     * @param appointmentDTO
+     * @return {@link AppointmentDTO}
+     */
+    AppointmentDTO update(Long idAppointment, AppointmentDTO appointmentDTO);
 
     /**
      * <h2>

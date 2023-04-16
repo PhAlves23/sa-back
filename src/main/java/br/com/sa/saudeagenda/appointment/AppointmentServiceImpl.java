@@ -43,6 +43,19 @@ public class AppointmentServiceImpl implements AppointmentService {
     }
 
     @Override
+    public AppointmentDTO update(Long idAppointment, AppointmentDTO appointmentDTO) {
+        log.info("[1] - Search appointment in the database. idAppointment: {}", idAppointment);
+        AppointmentModel appointmentModel = repository.findById(idAppointment)
+                .orElseThrow(() -> new DatabaseException("Entity not found!"));
+        log.info("[2] - Mapping for appointmentModel.");
+        appointmentModel.setDate(appointmentDTO.getDate());
+        appointmentModel.setAppointmentTime(appointmentDTO.getAppointmentTime());
+        log.info("[3]. Saving new appointment in the database. appointmentModel: {}", appointmentModel.toString());
+        repository.save(appointmentModel);
+        return new AppointmentDTO(appointmentModel);
+    }
+
+    @Override
     public void delete(Long idAppointment) {
         log.info("[1] - Delete appointment in the database by id. idAppointment: {}", idAppointment);
         repository.deleteById(idAppointment);
