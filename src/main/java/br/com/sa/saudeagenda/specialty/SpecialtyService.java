@@ -37,6 +37,18 @@ public interface SpecialtyService {
 
     /**
      * <h2>
+     * Method responsible for updateting  <b><i>Specialty</i></b>.
+     * </h2>
+     *
+     * @param idSpecialty
+     * @param specialtyDTO
+     * @return {@link SpecialtyDTO}
+     */
+    SpecialtyDTO update(Long idSpecialty, SpecialtyDTO specialtyDTO);
+
+
+    /**
+     * <h2>
      * Method responsible for deleting  <b><i>specialties</i></b>.
      * </h2>
      *

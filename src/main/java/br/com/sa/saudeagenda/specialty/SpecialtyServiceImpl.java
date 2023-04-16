@@ -43,6 +43,19 @@ public class SpecialtyServiceImpl implements SpecialtyService {
     }
 
     @Override
+    public SpecialtyDTO update(Long idSpecialty, SpecialtyDTO specialtyDTO) {
+        log.info("[1] - Search specialty in the database. idSpecialty: {}", idSpecialty);
+        SpecialtyModel specialtyModel = repository.findById(idSpecialty)
+                .orElseThrow(() -> new DatabaseException("Entity not found!"));
+        log.info("[2] - Mapping for patientModel.");
+        specialtyModel.setName(specialtyDTO.getName());
+        specialtyModel.setDescription(specialtyDTO.getDescription());
+        log.info("[3]. Saving new patient in the database. patientModel: {}", specialtyModel.toString());
+        repository.save(specialtyModel);
+        return new SpecialtyDTO(specialtyModel);
+    }
+
+    @Override
     public void delete(Long idSpecialty) {
         log.info("[1] - Delete specialty in the database by id. idSpecialty: {}", idSpecialty);
         repository.deleteById(idSpecialty);
