@@ -42,4 +42,10 @@ public class AppointmentServiceImpl implements AppointmentService {
         return new AppointmentDTO(appointmentModel);
     }
 
+    @Override
+    public void delete(Long idAppointment) {
+        log.info("[1] - Delete appointment in the database by id. idAppointment: {}", idAppointment);
+        repository.deleteById(idAppointment);
+    }
+
 }

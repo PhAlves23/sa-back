@@ -47,13 +47,13 @@ public interface AppointmentService {
 //     */
 //    AppointmentDTO update(Long idAppointment, AppointmentDTO appointmentDTO);
 
-//    /**
-//     * <h2>
-//     * Method responsible for deleting  <b><i>appointments</i></b>.
-//     * </h2>
-//     *
-//     * @param idAppointment
-//     */
-//    void delete(Long idAppointment);
+    /**
+     * <h2>
+     * Method responsible for deleting  <b><i>appointments</i></b>.
+     * </h2>
+     *
+     * @param idAppointment
+     */
+    void delete(Long idAppointment);
 
 }
